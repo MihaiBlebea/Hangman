@@ -1,4 +1,5 @@
 from writer import Writer
+import os
 
 # This is the interface for the Writer class
 # to init this class you need to pass nothing to constructor
@@ -8,6 +9,8 @@ class WriterInterface(Writer):
     word_file = "word.txt"
 
     validate_file = "validate.txt"
+
+    letters_file = "letters.txt"
 
     def save_word(self, word):
         hidden_word = self.hide_letters(word)
@@ -44,6 +47,13 @@ class WriterInterface(Writer):
                 result = True
 
         self.write_txt(self.word_file, "".join(word_letters))
+        if result == False:
+            file_path = "{}/{}".format(self.folder,self.letters_file)
+            if os.stat(file_path).st_size == 0:
+                self.append_txt(self.letters_file, value)
+            else:
+                self.append_txt(self.letters_file, "-" + value)
+
         return result
 
     def is_winner(self):
@@ -51,4 +61,11 @@ class WriterInterface(Writer):
         if word.find("_") > 0:
             return False
         elif word.find("_") < 0:
+            self.reset_file(self.letters_file)
             return True
+
+    def game_over(self):
+        self.reset_file(self.letters_file)
+
+    def failed_letters(self):
+        return self.read_txt(self.letters_file)

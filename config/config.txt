@@ -1,0 +1,16 @@
+{
+    "app_name": "hangman",
+
+    "wiki_term": "World_War_II",
+
+    "levels": {
+
+        "easy": 20,
+
+        "medium": 10,
+
+        "hard": 5,
+        
+        "default": 8
+    }
+}

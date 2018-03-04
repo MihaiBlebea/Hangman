@@ -28,14 +28,19 @@ class Message:
         print(" ")
         print("Bravo " + self.name + "! You guessed letter " + letter.upper())
         print(" ")
+        print("---------------------------------")
 
     def fail(self):
         print(" ")
         print("Sorry " + self.name + "!")
         print(" ")
+        print("---------------------------------")
 
     def success_game(self, word):
         print(" ")
         print("Very good " + self.name + ", you won!!!")
         print("The word was " + word.upper())
         print(" ")
+
+    def failed_letters(self, letters):
+        print("Tried letters: " + letters.upper())

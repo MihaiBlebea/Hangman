@@ -19,6 +19,12 @@ class Writer:
         txt_file.write(payload)
         txt_file.close()
 
+    def append_txt(self, file, payload):
+        path = self.path(file)
+        txt_file = open(path, "a")
+        txt_file.write(payload)
+        txt_file.close()
+
     def read_txt(self, file):
         path = self.path(file)
         with open(path, "r") as txt_file:
@@ -46,3 +52,7 @@ class Writer:
                 result.append("_")
 
         return "".join(result)
+
+    def reset_file(self, file):
+        path = self.path(file)
+        open(path, 'w').close()
