@@ -29,12 +29,18 @@ class Writer:
     # Helper methods
     def hide_letters(self, word):
         letters = list(word)
+        first_letter = letters[0]
+        last_letter = letters[len(letters) - 1]
 
         result = []
         for index, letter in enumerate(letters):
             if index == 0:
                 result.append(letter)
             elif index == len(letters) - 1:
+                result.append(letter)
+            elif letter == first_letter:
+                result.append(letter)
+            elif letter == last_letter:
                 result.append(letter)
             else:
                 result.append("_")

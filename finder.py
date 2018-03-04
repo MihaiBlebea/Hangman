@@ -42,6 +42,3 @@ class Finder:
     # Auxiliar methods to help
     def random_int(self, maxim):
         return random.randint(0, maxim)
-
-    def count_letters(self, word):
-        return len(word) - word.count(' ')

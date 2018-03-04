@@ -37,12 +37,14 @@ class WriterInterface(Writer):
         word = self.read_txt(self.word_file)
         word_letters = list(word)
 
+        result = False
         for index, item in enumerate(validator_letters):
             if item == value:
                 word_letters[index] = value
+                result = True
 
         self.write_txt(self.word_file, "".join(word_letters))
-        return self.read_txt(self.word_file)
+        return result
 
     def is_winner(self):
         word = self.read_txt(self.word_file)
